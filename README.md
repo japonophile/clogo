@@ -23,21 +23,21 @@ learn the LOGO language and command the turtle to draw on the screen.
 All you need is either [leiningen](http://leiningen.org/) or 
 [maven](http://maven.apache.org/) to build the app.
 
-```git clone https://github.com/japonophile/clogo.git
-```
+ ```git clone https://github.com/japonophile/clogo.git
+ ```
 
 - With leiningen:
 
-```lein compile
-lein uberjar
-java -jar target/clogo-0.1.0-SNAPSHOT-standalone.jar
-```
+ ```lein compile
+ lein uberjar
+ java -jar target/clogo-0.1.0-SNAPSHOT-standalone.jar
+ ```
 
 - With maven:
 
-```mvn install
-java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar
-```
+ ```mvn install
+ java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar
+ ```
 
 See the [cLOGO Crash Course](#clogo-crash-course) to find out what you can do with Clogo
 
@@ -55,22 +55,23 @@ Here are the steps to follow:
 
 2. Install them in your local Maven repo:
 
-```mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/pc/pccomm.jar -DgroupId=lejos.pc -DartifactId=pccomm -Dversion=0.9.1-beta3 -Dpackaging=jar
-mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/nxt/classes.jar -DgroupId=lejos.nxt -DartifactId=classes -Dversion=0.9.1-beta3 -Dpackaging=jar
-```
+ ```mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/pc/pccomm.jar -DgroupId=lejos.pc -DartifactId=pccomm -Dversion=0.9.1-beta3 -Dpackaging=jar
+ mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/nxt/classes.jar -DgroupId=lejos.nxt -DartifactId=classes -Dversion=0.9.1-beta3 -Dpackaging=jar
+ ```
 
 3. Install and build bluecove (2.1.1-SNAPSHOT)
 
-```git clone https://github.com/jarias/bluecove.git
-mvn install
-```
+ ```git clone https://github.com/jarias/bluecove.git
+ mvn install
+ ```
 
 4. Use Maven to build the LOGO interpreter and the LogoTurtle software to be 
    downloaded onto the NXT2 robot.
    You need to specify the path of leJOS, because the compiler will be required
    to compile the turtle code.
-```mvn install -Pnxt -Dnxj.home=/Users/yourhome/leJOS_NXJ_0.9.1beta-3
-```
+
+ ```mvn install -Pnxt -Dnxj.home=/Users/yourhome/leJOS_NXJ_0.9.1beta-3
+ ```
 
 5. Build your turtle robot.  It will use 2 motors to move and turn, and one motor
    to control the pencil.  Once the robot is built, you should configure bluetooth 
@@ -82,8 +83,8 @@ mvn install
 
 6. Start the application on your computer.
 
-```java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar
-```
+ ```java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar
+ ```
 
    Within a few seconds, the application should try to connect with the turtle using
    bluetooth.  Each command to the LOGO REPL will be sent to the robot for execution.
@@ -133,18 +134,18 @@ Here are some commands you can use:
 
 - Draw a square
 
-```POUR CARRE :COTE
-  AVANCE COTE
-  DROITE 90
-FIN
-```
+ ```POUR CARRE :COTE
+   AVANCE COTE
+   DROITE 90
+ FIN
+ ```
 
 - Draw a circle (actually a 36-sides polygon)
 
-```POUR CERCLE
-  REPETE 36 [ AVANCE 1 DROITE 10 ]
-FIN
-```
+ ```POUR CERCLE
+   REPETE 36 [ AVANCE 1 DROITE 10 ]
+ FIN
+ ```
 
 ## Contributing
 
