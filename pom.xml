@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>clogo</groupId>
+  <artifactId>clogo.root</artifactId>
+  <packaging>pom</packaging>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>clogo</name>
+  <description>LOGO interpreter written in Clojure controlling a Lego NXT2 turtle robot</description>
+  <url>http://chopp.in/clj/clogo</url>
+  <licenses>
+    <license>
+      <name>Eclipse Public License</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+    </license>
+  </licenses>
+
+  <modules>
+    <module>clogo</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>nxt</id>
+      <modules>
+        <module>logoturtle</module>
+      </modules>
+    </profile>
+  </profiles>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>http://repo1.maven.org/maven2/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
+
+</project>
