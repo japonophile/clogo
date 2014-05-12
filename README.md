@@ -23,16 +23,21 @@ learn the LOGO language and command the turtle to draw on the screen.
 All you need is either [leiningen](http://leiningen.org/) or 
 [maven](http://maven.apache.org/) to build the app.
 
-```git clone https://github.com/japonophile/clogo.git```
+```git clone https://github.com/japonophile/clogo.git
+```
 
 - With leiningen:
+
 ```lein compile
 lein uberjar
-java -jar target/clogo-0.1.0-SNAPSHOT-standalone.jar```
+java -jar target/clogo-0.1.0-SNAPSHOT-standalone.jar
+```
 
 - With maven:
+
 ```mvn install
-java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar```
+java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar
+```
 
 See the [cLOGO Crash Course](#clogo-crash-course) to find out what you can do with Clogo
 
@@ -46,32 +51,40 @@ If you plan to try with a Lego NXT2 robot, you will need
 Note: I am on Mac OSX and haven't tested on other platforms.
 
 Here are the steps to follow:
-1. Install Lejos libraries
-  1. Download `leJOS_NXJ_0.9.1beta-3.tar.gz` from <http://sourceforge.net/projects/lejos/files/lejos-NXJ/>
-  2. Install them in your local Maven repo:
+1. Download Lejos librairies: get `leJOS_NXJ_0.9.1beta-3.tar.gz` from <http://sourceforge.net/projects/lejos/files/lejos-NXJ/>
+
+2. Install them in your local Maven repo:
+
 ```mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/pc/pccomm.jar -DgroupId=lejos.pc -DartifactId=pccomm -Dversion=0.9.1-beta3 -Dpackaging=jar
-mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/nxt/classes.jar -DgroupId=lejos.nxt -DartifactId=classes -Dversion=0.9.1-beta3 -Dpackaging=jar```
+mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/nxt/classes.jar -DgroupId=lejos.nxt -DartifactId=classes -Dversion=0.9.1-beta3 -Dpackaging=jar
+```
 
-2. Install and build bluecove (2.1.1-SNAPSHOT)
+3. Install and build bluecove (2.1.1-SNAPSHOT)
+
 ```git clone https://github.com/jarias/bluecove.git
-mvn install```
+mvn install
+```
 
-3. Use Maven to build the LOGO interpreter and the LogoTurtle software to be 
+4. Use Maven to build the LOGO interpreter and the LogoTurtle software to be 
    downloaded onto the NXT2 robot.
    You need to specify the path of leJOS, because the compiler will be required
    to compile the turtle code.
-```mvn install -Pnxt -Dnxj.home=/Users/yourhome/leJOS_NXJ_0.9.1beta-3```
+```mvn install -Pnxt -Dnxj.home=/Users/yourhome/leJOS_NXJ_0.9.1beta-3
+```
 
-4. Build your turtle robot.  It will use 2 motors to move and turn, and one motor
+5. Build your turtle robot.  It will use 2 motors to move and turn, and one motor
    to control the pencil.  Once the robot is built, you should configure bluetooth 
    and pair your NXT2 processor with your computer.
 
-5. Download the LogoTurtle.nxd / LogoTurtle.nxj onto your NXT2 processor (using the
+6. Download the LogoTurtle.nxd / LogoTurtle.nxj onto your NXT2 processor (using the
    USB link shipped with your Lego Mindstorms); then start your robot.  It will show
    the letters "connecting..." on its LCD screen.
 
 6. Start the application on your computer.
-```java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar```
+
+```java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar
+```
+
    Within a few seconds, the application should try to connect with the turtle using
    bluetooth.  Each command to the LOGO REPL will be sent to the robot for execution.
 
@@ -85,13 +98,15 @@ welcome!)
 
 Here are some commands you can use:
 
-1. Basic drawing commands
+#### Basic drawing commands
+
 - `AVANCE X` (resp `RECULE X`) : move forward (resp backward) for _X_ steps
 - `GAUCHE Y` (resp `DROITE X`) : make a left (resp right) turn of _X_ degrees
 - `LEVECRAYON` (resp `BAISSECRAYON`) : put the pen down (resp up)
 - `MONTRETORTUE` (resp `CACHETORTUE`) : show (resp hide) the turtle
 
-2. Programming constructs
+#### Programming constructs
+
 - `REPETE N [ ... ]` : repeat _N_ times the instructions in square brackets
 - `POUR PROCNAME ... FIN` : defines a procedure called `PROCNAME` which can
   be reused by writing its name.  You can also pass parameters to the procedure
@@ -100,30 +115,36 @@ Here are some commands you can use:
 - `DONNE VARNAME VALUE` : defines a variable `VARNAME` with a certain `VALUE` which
   can be an expression.
 
-3. Expressions
+#### Expressions
+
 - Clogo supports both prefix and infix operatorsr:
   - Prefix operators: `SOMME X Y`, `DIFFERENCE X Y`, `PRODUIT X Y` and `QUOTIENT X Y`.
   - Infix operators: `X + Y`, `X - Y`, `X * Y` and `X / Y`.
 - You can also use parentheses in your expressions
 
-4. Writing to the screen
+#### Writing to the screen
+
 - `ECRIS X` : write the value of _X_ to the screen
 - Clogo has 2 predefined variables:
   - `POS` : the position of the turtle (x and y)
   - `CAP` : the orientation of the turtle (in degrees)
 
-Examples:
+#### Examples:
 
 - Draw a square
+
 ```POUR CARRE :COTE
   AVANCE COTE
   DROITE 90
-FIN```
+FIN
+```
 
 - Draw a circle (actually a 36-sides polygon)
+
 ```POUR CERCLE
   REPETE 36 [ AVANCE 1 DROITE 10 ]
-FIN```
+FIN
+```
 
 ## Contributing
 
