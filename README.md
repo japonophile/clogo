@@ -1,12 +1,12 @@
 # Clogo
 
-["Clogo"](http://chopp.in/clj/clogo) is a LOGO REPL (interpreter) written in Clojure.
+[Clogo](http://chopp.in/clj/clogo) is a LOGO REPL (interpreter) written in Clojure.
 It can control a Lego NXT2 turtle robot or be used in standalone mode.
 
 > Logo is an education programming language, designed in 1967 ... remembered mainly
 > for its use of "turtle graphics" ... Logo is a multi-paradigm adaptation and 
 > dialect of Lisp
--- ["Wikipedia Logo (programming language)"](<http://en.wikipedia.org/wiki/Logo_(programming_language)>)
+-- [Wikipedia Logo (programming language)](<http://en.wikipedia.org/wiki/Logo_(programming_language)>)
 
 ## WTF? (What's This For?)
 
@@ -20,8 +20,8 @@ It can control a Lego NXT2 turtle robot or be used in standalone mode.
 
 You can try Clogo very easily.  Even if you don't have Lego Mindstorms, you can 
 learn the LOGO language and command the turtle to draw on the screen.
-All you need is either ["leiningen"](http://leiningen.org/) or 
-["maven"](http://maven.apache.org/) to build the app.
+All you need is either [leiningen](http://leiningen.org/) or 
+[maven](http://maven.apache.org/) to build the app.
 
 ```git clone https://github.com/japonophile/clogo.git```
 
