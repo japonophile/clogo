@@ -23,18 +23,24 @@ learn the LOGO language and command the turtle to draw on the screen.
 All you need is either [leiningen](http://leiningen.org/) or 
 [maven](http://maven.apache.org/) to build the app.
 
- ```git clone https://github.com/japonophile/clogo.git```
+```
+git clone https://github.com/japonophile/clogo.git
+```
 
 - With leiningen:
 
- ```lein compile
- lein uberjar
- java -jar target/clogo-0.1.0-SNAPSHOT-standalone.jar```
+```
+lein compile
+lein uberjar
+java -jar target/clogo-0.1.0-SNAPSHOT-standalone.jar
+```
 
 - With maven:
 
- ```mvn install
- java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar```
+```
+mvn install
+java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar
+```
 
 See the [cLOGO Crash Course](#clogo-crash-course) to find out what you can do with Clogo
 
@@ -48,39 +54,48 @@ If you plan to try with a Lego NXT2 robot, you will need
 Note: I am on Mac OSX and haven't tested on other platforms.
 
 Here are the steps to follow:
-1. Download Lejos librairies: get `leJOS_NXJ_0.9.1beta-3.tar.gz` from <http://sourceforge.net/projects/lejos/files/lejos-NXJ/>
 
-2. Install them in your local Maven repo:
+* Download Lejos librairies: get `leJOS_NXJ_0.9.1beta-3.tar.gz` from <http://sourceforge.net/projects/lejos/files/lejos-NXJ/>
 
- ```mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/pc/pccomm.jar -DgroupId=lejos.pc -DartifactId=pccomm -Dversion=0.9.1-beta3 -Dpackaging=jar
- mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/nxt/classes.jar -DgroupId=lejos.nxt -DartifactId=classes -Dversion=0.9.1-beta3 -Dpackaging=jar```
+* Install them in your local Maven repo:
 
-3. Install and build bluecove (2.1.1-SNAPSHOT)
+```
+mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/pc/pccomm.jar -DgroupId=lejos.pc -DartifactId=pccomm -Dversion=0.9.1-beta3 -Dpackaging=jar
+mvn install:install-file -Dfile=leJOS_NXJ_0.9.1beta-3/lib/nxt/classes.jar -DgroupId=lejos.nxt -DartifactId=classes -Dversion=0.9.1-beta3 -Dpackaging=jar
+```
 
- ```git clone https://github.com/jarias/bluecove.git
- mvn install```
+* Install and build bluecove (2.1.1-SNAPSHOT)
 
-4. Use Maven to build the LOGO interpreter and the LogoTurtle software to be 
-   downloaded onto the NXT2 robot.
-   You need to specify the path of leJOS, because the compiler will be required
-   to compile the turtle code.
+```
+git clone https://github.com/jarias/bluecove.git
+mvn install
+```
 
- ```mvn install -Pnxt -Dnxj.home=/Users/yourhome/leJOS_NXJ_0.9.1beta-3```
+* Use Maven to build the LOGO interpreter and the LogoTurtle software to be 
+  downloaded onto the NXT2 robot.
+  You need to specify the path of leJOS, because the compiler will be required
+  to compile the turtle code.
 
-5. Build your turtle robot.  It will use 2 motors to move and turn, and one motor
-   to control the pencil.  Once the robot is built, you should configure bluetooth 
-   and pair your NXT2 processor with your computer.
+```
+mvn install -Pnxt -Dnxj.home=/Users/yourhome/leJOS_NXJ_0.9.1beta-3
+```
 
-6. Download the LogoTurtle.nxd / LogoTurtle.nxj onto your NXT2 processor (using the
-   USB link shipped with your Lego Mindstorms); then start your robot.  It will show
-   the letters "connecting..." on its LCD screen.
+* Build your turtle robot.  It will use 2 motors to move and turn, and one motor
+  to control the pencil.  Once the robot is built, you should configure bluetooth 
+  and pair your NXT2 processor with your computer.
 
-6. Start the application on your computer.
+* Download the LogoTurtle.nxd / LogoTurtle.nxj onto your NXT2 processor (using the
+  USB link shipped with your Lego Mindstorms); then start your robot.  It will show
+  the letters `connecting...` on its LCD screen.
 
- ```java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar```
+* Start the application on your computer.
 
-   Within a few seconds, the application should try to connect with the turtle using
-   bluetooth.  Each command to the LOGO REPL will be sent to the robot for execution.
+```
+java -jar target/clogo-0.1.0-SNAPSHOT-jar-with-dependencies.jar
+```
+
+Within a few seconds, the application should try to connect with the turtle using
+bluetooth.  Each command to the LOGO REPL will be sent to the robot for execution.
 
 Enjoy!
 
@@ -127,16 +142,20 @@ Here are some commands you can use:
 
 - Draw a square
 
- ```POUR CARRE :COTE
+```
+POUR CARRE :COTE
    AVANCE COTE
    DROITE 90
- FIN```
+FIN
+```
 
 - Draw a circle (actually a 36-sides polygon)
 
- ```POUR CERCLE
+```
+POUR CERCLE
    REPETE 36 [ AVANCE 1 DROITE 10 ]
- FIN```
+FIN
+```
 
 ## Contributing
 
